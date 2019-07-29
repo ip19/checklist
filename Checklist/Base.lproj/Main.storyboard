@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="MD4-eU-SLx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="MD4-eU-SLx" customClass="ChecklistTableViewCell" customModule="Checklist" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MD4-eU-SLx" id="MhA-a8-qzr">
@@ -39,15 +39,21 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="ivI-EI-U98" firstAttribute="top" secondItem="MhA-a8-qzr" secondAttribute="top" constant="7" id="6H4-DW-zaC"/>
+                                        <constraint firstItem="ivI-EI-U98" firstAttribute="leading" secondItem="MhA-a8-qzr" secondAttribute="leading" constant="20" id="8Bg-vd-7no"/>
                                         <constraint firstItem="Aug-P5-Lto" firstAttribute="leading" secondItem="MhA-a8-qzr" secondAttribute="leading" constant="41" id="8fq-kt-LNl"/>
+                                        <constraint firstAttribute="bottom" secondItem="ivI-EI-U98" secondAttribute="bottom" constant="12.5" id="QT9-Rg-GJW"/>
                                         <constraint firstItem="ivI-EI-U98" firstAttribute="top" secondItem="MhA-a8-qzr" secondAttribute="topMargin" constant="-4" id="Zlc-6V-z4z"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Aug-P5-Lto" secondAttribute="trailing" constant="20" symbolic="YES" id="bag-DS-MeH"/>
+                                        <constraint firstItem="Aug-P5-Lto" firstAttribute="leading" secondItem="ivI-EI-U98" secondAttribute="trailing" constant="6" id="eJC-JG-8XH"/>
                                         <constraint firstAttribute="bottom" secondItem="Aug-P5-Lto" secondAttribute="bottom" priority="750" constant="11" id="ftN-zs-m4h"/>
                                         <constraint firstItem="Aug-P5-Lto" firstAttribute="top" secondItem="MhA-a8-qzr" secondAttribute="top" priority="750" constant="11" id="qvO-Vh-Lys"/>
                                         <constraint firstItem="ivI-EI-U98" firstAttribute="leading" secondItem="MhA-a8-qzr" secondAttribute="leadingMargin" id="s7v-gy-eXJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="checkmarkLabel" destination="ivI-EI-U98" id="0di-LW-14K"/>
+                                    <outlet property="todoTextLabel" destination="Aug-P5-Lto" id="djg-bV-7e3"/>
                                     <segue destination="kwX-nQ-mal" kind="show" identifier="EditItemSegue" trigger="accessoryAction" id="HQa-uS-vip"/>
                                 </connections>
                             </tableViewCell>
@@ -58,11 +64,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Checklist" id="MCP-V7-eUY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="za4-6M-JSA">
-                            <connections>
-                                <segue destination="kwX-nQ-mal" kind="show" identifier="AddItemSegue" id="Ztl-dg-s0M"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="za4-6M-JSA">
+                                <connections>
+                                    <segue destination="kwX-nQ-mal" kind="show" identifier="AddItemSegue" id="Ztl-dg-s0M"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" id="UAH-II-DxW">
+                                <connections>
+                                    <action selector="deleteItems:" destination="nHu-YX-WYx" id="lpz-mz-wU2"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
