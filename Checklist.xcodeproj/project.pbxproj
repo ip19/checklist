@@ -82,6 +82,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		466E03AE22EF94FD009758F7 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		46EBD50B22E25974008A7249 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +138,7 @@
 		46EBD53622E25975008A7249 /* ChecklistUITests */ = {
 			isa = PBXGroup;
 			children = (
+				466E03AE22EF94FD009758F7 /* Features */,
 				46EBD53722E25975008A7249 /* ChecklistUITests.swift */,
 				46EBD53922E25975008A7249 /* Info.plist */,
 			);
